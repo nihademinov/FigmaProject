@@ -1,50 +1,78 @@
 ﻿using FigmaProject.Commands;
+using FigmaProject.DataBase;
+using FigmaProject.Models;
+using FigmaProject.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
+using System.Windows.Controls.Primitives;
 
-namespace FigmaProject.ViewModels
+namespace FigmaProject.ViewModels;
+
+public class MainViewModel : INotifyPropertyChanged
 {
-    public class MainViewModel
+    public RealCommand? LoadButtonCommand { get; set; }
+    public AllDataBase alldb = new();
+    private string? textBoxusername1;
+    private string? textboxpassword1;
+    public User? selectedUser = null;
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    public string? textBoxusername
     {
-        public RealCommand? ClearTextBoxCommand { get; set; }
-        public MainViewModel()
+        get => textBoxusername1;
+        set
         {
-            ClearTextBoxCommand = new RealCommand(ClearTextBox!,canEdit);
-
+            textBoxusername1 = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(textBoxusername1));
         }
-
-        public bool canEdit(object? param)
+    }
+    public string? textboxpassword
+    {
+        get => textboxpassword1;
+        set
         {
-            return true;
+            textboxpassword1 = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(textboxpassword1));
         }
+    }
 
-        private void ClearTextBox(object parameter)
-        {
-            TextBox? textBox = parameter as TextBox;
-            if (textBox != null)
-            {
-                textBox.Text = string.Empty;
-            }
-        }
 
-        private void TextBox_MouseDown(object sender, MouseButtonEventArgs e)
-        {
 
-            TextBox textBox = (TextBox)sender;
-            textBox.Foreground = new SolidColorBrush(Colors.Black);
-            textBox.Padding = new Thickness(140, 15, 0, 0);
-            textBox.Text = "";
-        }
 
+    public MainViewModel()
+    {
+        this.textBoxusername = "enter username";
+        this.textboxpassword = "enter password";
+        LoadButtonCommand = new RealCommand(loadButton);
 
     }
+
+   
+ 
+
+    public void loadButton(object? parametr)
+    {
+        bool check = alldb.findUser(textBoxusername, textboxpassword);
+        if(check)
+        {
+            SeccondWindowView seccondWindow = new();
+            seccondWindow.DataContext = new SeccondWindowViewModel();
+            var window = Application.Current.Windows[0];
+            window.Close();
+            seccondWindow.ShowDialog();
+        }
+        else
+        {
+            MessageBox.Show("User not found","Error",MessageBoxButton.OK,MessageBoxImage.Error);
+        }
+    }
+
+
+
+
+
 }
 
 

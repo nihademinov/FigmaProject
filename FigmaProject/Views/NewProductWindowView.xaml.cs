@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FigmaProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,28 +12,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using FigmaProject.ViewModels;
-
-
 
 namespace FigmaProject.Views
 {
     /// <summary>
-    /// Interaction logic for ThridWindowView.xaml
+    /// Interaction logic for NewProductWindowView.xaml
     /// </summary>
-    public partial class ThridWindowView : Window
+    public partial class NewProductWindowView : Window
     {
+
         private string? tempDefaultValue;
         private string? tempDefaultValue2;
-
-        public ThridWindowView()
+        public NewProductWindowView()
         {
+            DataContext = new NewProductWindowViewModel();
             InitializeComponent();
-            DataContext = new ThridwindowViewModel();
         }
-
-
-  
 
 
         private void TextBox_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

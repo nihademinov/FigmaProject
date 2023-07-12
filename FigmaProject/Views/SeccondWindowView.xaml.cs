@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FigmaProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace FigmaProject.Views
         public SeccondWindowView()
         {
             InitializeComponent();
+            DataContext = new SeccondWindowViewModel();
         }
     }
 }

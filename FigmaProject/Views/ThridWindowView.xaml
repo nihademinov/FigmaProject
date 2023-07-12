@@ -36,21 +36,20 @@
             <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10">
                 <Image  Source="/StaticFiles/client.png"/>
             </Label>
-            <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="13">
-                <Image Source="/Views/home.png"/>
-            </Label>
+        
+            <Button Grid.Column="1" Width="80" HorizontalAlignment="Right" Margin="0,0,20,0" Content="home" FontSize="17" Foreground="#FFFFFF" Command="{Binding HomeButtonCommand}"/>
         </Grid>
 
         <Label Grid.Row="1" Content="Name" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
-        <TextBox Grid.Row="2" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="What is the name of the client?" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  />
+        <TextBox Grid.Row="2" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding txtBoxName, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
         <Label Grid.Row="3" Content="Surname" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
-        <TextBox Grid.Row="4" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="What is the surname of the client?" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  />
+        <TextBox Grid.Row="4" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding txtBoxSurname, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
         <Label Grid.Row="5" Content="Number" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
-        <TextBox Grid.Row="6" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="What is the phone number of the client?" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  />
+        <TextBox Grid.Row="6" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding txtBoxPhone, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
         <Label Grid.Row="7" Content="Company" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
-        <TextBox Grid.Row="8" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="Which company does the person belong to?" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  />
+        <TextBox Grid.Row="8" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding txtBoxCompany, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus" />
         <Label Grid.Row="9" Content="Place" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
-        <TextBox Grid.Row="10" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="Where did he/she found me?" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  />
+        <TextBox Grid.Row="10" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding txtBoxPlace, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus" />
         <Label Grid.Row="11" Content="Registration date" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
 
         <Grid Grid.Row="12">
@@ -59,14 +58,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox  HorizontalAlignment="Center" Text="Day" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180"  />
-            <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="Month" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180"  />
-            <TextBox Grid.Column="2" HorizontalAlignment="Center" Text="Year" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180"  />
+            <TextBox  HorizontalAlignment="Center" Text="{Binding txtBoxDay, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180"  PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding txtBoxMonth, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+            <TextBox Grid.Column="2" HorizontalAlignment="Center" Text="{Binding txtBoxYear, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
         </Grid>
         <Label Grid.Row="13" Content="How do I know him/her" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
-        <TextBox Grid.Row="14" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="Write how do you know him/her " Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  />
-        <Button Grid.Row="15" Content="register" FontSize="18" Margin="5,10,5,0"/>
-        <Label Grid.Row="16" Content="Proudly created by Tunar Abuzar in 2021." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+        <TextBox Grid.Row="14" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding txtBoxDescription, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+        <Button Grid.Row="15" Content="register" FontSize="18" Margin="5,10,5,0" Command="{Binding RegisterButtonCommand}"/>
+        <Label Grid.Row="16" Content="Proudly created by Nihad Eminov in 2023." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
 
 
     </Grid>

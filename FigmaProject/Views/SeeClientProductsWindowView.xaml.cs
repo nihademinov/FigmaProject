@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FigmaProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,14 @@ namespace FigmaProject.Views
     {
         public SeeClientProductsWindowView()
         {
+            DataContext = new SeeClientAllProductsWindowViewModel();
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("dsdd");
+
         }
     }
 }

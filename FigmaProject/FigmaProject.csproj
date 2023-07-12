@@ -8,14 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\building.png" />
     <None Remove="Views\client.png" />
     <None Remove="Views\home.png" />
+    <None Remove="Views\instagram.png" />
+    <None Remove="Views\pen.png" />
+    <None Remove="Views\phone.png" />
     <None Remove="Views\username.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="StaticFiles\client.png" />
+    <Resource Include="Views\building.png" />
     <Resource Include="Views\home.png" />
+    <Resource Include="Views\instagram.png" />
+    <Resource Include="Views\pen.png" />
+    <Resource Include="Views\phone.png" />
     <Resource Include="Views\username.png" />
   </ItemGroup>
 

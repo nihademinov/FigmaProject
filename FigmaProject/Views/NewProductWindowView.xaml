@@ -1,0 +1,74 @@
+﻿<Window x:Class="FigmaProject.Views.NewProductWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FigmaProject.Views"
+        mc:Ignorable="d"
+        Title="NewProductWindowView" Height="700" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10">
+                <Image  Source="/StaticFiles/client.png"/>
+            </Label>
+
+            <Button Grid.Column="1" Width="80" HorizontalAlignment="Right" Margin="0,0,20,0" Content="home" FontSize="17" Foreground="#FFFFFF" Command="{Binding HomeButtonCommand}"/>
+        </Grid>
+
+        <Label Grid.Row="1" Content="Name of the order" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
+        <TextBox Grid.Row="2" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding ProductName, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+        <Label Grid.Row="3" Content="Order quantity" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
+        <TextBox Grid.Row="4" Width="560" Margin="10,0,10,0"  HorizontalAlignment="Left" Text="{Binding ProductQuantity, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+        <Label Grid.Row="5" Content="Order opening day" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
+        <Label Grid.Row="7" Content="Order delivery day" Foreground="#01133D" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" FontWeight="Bold"/>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox  HorizontalAlignment="Center" Text="{Binding OrderDay, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180"  PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding OrderMonth, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+            <TextBox Grid.Column="2" HorizontalAlignment="Center" Text="{Binding OrderYear, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+        </Grid>
+
+
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox  HorizontalAlignment="Center" Text="{Binding DeliveryDay, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180"  PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding DeliveryMonth, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+            <TextBox Grid.Column="2" HorizontalAlignment="Center" Text="{Binding DeliveryYear, Mode=TwoWay}" Background="#FFFFFF" Padding="10,10,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" Width="180" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"  />
+        </Grid>
+        <Button Grid.Row="9" Content="register" FontSize="18" Margin="5,10,5,0" Command="{Binding RegisterButtonCommand}"/>
+        <Label Grid.Row="10" Content="Proudly created by Nihad Eminov in 2023." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+
+
+
+
+
+    </Grid>
+</Window>

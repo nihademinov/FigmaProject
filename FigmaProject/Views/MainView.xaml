@@ -28,18 +28,11 @@
             <Image Margin="10" Source="/StaticFiles/client.png"/>
             </Label>
         <Label Width="430" Height="65" Grid.Row="1" Content="username" Foreground="#01133D" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="160,30,0,0" FontFamily="Sulphur Point" FontWeight="Bold"/>
-        <TextBox Grid.Row="2" Width="450" Margin="0,0,0,25" Text="enter your username" Background="#FFFFFF" Padding="150,15,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  >
-                <!--<i:Interaction.Triggers>
-                <i:EventTrigger EventName="PreviewMouseDown">
-                    <i:InvokeCommandAction Command="{Binding ClearTextBoxCommand}"  />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>-->
-
-        </TextBox>
+        <TextBox Name="usernameTxtBox" Grid.Row="2" Width="450" Margin="0,0,0,25" Text="{Binding textBoxusername, Mode=TwoWay}" Background="#FFFFFF" Padding="150,15,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point" PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus" />
         <Label Width="430" Height="65" Grid.Row="3" Content="password" Foreground="#01133D" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="160,15,0,0" FontFamily="Sulphur Point" FontWeight="Bold"/>
-        <TextBox Grid.Row="4" Width="450" Margin="0,0,0,25" Text="enter your password" Background="#FFFFFF" Padding="150,15,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  />
-        <Button Grid.Row="5"  Content="log in"  Width="500" Margin="0,100,0,0" Background="#01133D" FontSize="19"/>
-        <Label Grid.Row="6" Content="Proudly created by Tunar Abuzar in 2021." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+        <TextBox Name="passwordTxtBox" Grid.Row="4" Width="450" Margin="0,0,0,25" Text="{Binding textboxpassword,Mode=TwoWay}" Background="#FFFFFF" Padding="150,15,0,0" FontSize="15" Foreground="LightGray" FontFamily="Sulphur Point"  PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" LostFocus="TextBox_LostFocus"/>
+        <Button Grid.Row="5"  Content="log in"  Width="500" Margin="0,100,0,0" Background="#01133D" FontSize="19" Command="{Binding LoadButtonCommand}"/>
+        <Label Grid.Row="6" Content="Proudly created by Nihad Eminov in 2023." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
 
     </Grid>
 </Window>

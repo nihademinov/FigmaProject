@@ -7,196 +7,80 @@
         mc:Ignorable="d"
         Title="SeeAllClientsWindowView" Height="700" Width="600" Background="WhiteSmoke" >
     <Grid>
-        <ScrollViewer>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="1.5*"/>
-                    <RowDefinition Height="1.5*"/>
-                    <RowDefinition Height="1.5*"/>
-                    <RowDefinition Height="1.5*"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Background="White" VerticalAlignment="Top" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
 
-                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,0,200,0" Padding="10">
-                        <Image  Source="/StaticFiles/client.png"/>
-                    </Label>
-                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="15,5,10,0" Margin="200,0,5,0">
-                        <Image Source="/Views/home.png"/>
-                    </Label>
-                </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Width="100">
+                <Image  Source="/StaticFiles/client.png"/>
+            </Label>
+
+            <Button Grid.Column="1" Width="80" HorizontalAlignment="Right" Margin="0,5,20,0" Content="home" FontSize="17" Foreground="#FFFFFF" Command="{Binding HomeBtnCommand}" Height="45" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ScrollViewer Margin="0,80,0,0">
+
+                <ListView Grid.Row="1" BorderThickness="0" Background="#F4F8FB" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding allClients ,UpdateSourceTrigger=PropertyChanged}" Width="550" VerticalAlignment="Top"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="8" Margin="10" Background="#FFFFFF">
+                                <StackPanel Width="500" Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
+                                        <TextBlock Text="{Binding Name}" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold"  Padding="1"/>
+                                        <TextBlock Text="{Binding Surname}" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold"  Padding="1"/>
+                                        <Border CornerRadius="50" Background="#3476E4" Width="14" Height="14" Margin="115,0,0,0">
+                                            <Image Source="/StaticFiles/Images/2.png" Width="10" Height="10" />
+                                        </Border>
+                                        <Image Source="/StaticFiles/Images/instagram.png" Width="14" Height="14" Margin="10,0,0,0"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Place }" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold"  Padding="1"/>
+                                        <TextBlock Text="{Binding Phone}" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold"  Padding="1"/>
+                                        <TextBlock Text="{Binding Description}" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold"  Padding="1"/>
 
 
-                <Grid Grid.Row="2" Margin="18">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="6*"/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
+                                        <Button Content="more"  Height="20" Width="80" Margin="175,-40,0,0" Foreground="#FFFFFF" HorizontalAlignment="Right" 
+                                             CommandParameter="{Binding Id}" Command="{Binding DataContext.MoreButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"/>
+                                    </StackPanel>
 
-                    <Grid Grid.Row="0" Background="White">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="Nihad Eminov" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold" Margin="10,0,0,0" Padding="1"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
 
-                    </Grid>
-                    <Label  Grid.Row="1" Content="Indigo" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="0,0,0,15" Padding="11,3,0,0" Background="White" Grid.RowSpan="2"/>
-                    <Label  Grid.Row="2" Content="+994702045054" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="5,5,0,15" Padding="5,0,0,0" Background="White" Grid.RowSpan="2"/>
+        </Grid>
 
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="A4, A5 akrill toplu sifaris " Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"   Background="White" Grid.ColumnSpan="2" Margin="5,0,0,-10"/>
-                        <Button Content="more" Margin="451,-13,10,1" Grid.ColumnSpan="2"/>
-                    </Grid>
-                </Grid>
+       
 
-                <Grid Grid.Row="3" Margin="18">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="6*"/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0" Background="White">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="Nihad Eminov" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold" Margin="10,0,0,0" Padding="1"/>
-
-                    </Grid>
-                    <Label  Grid.Row="1" Content="Indigo" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="0,0,0,15" Padding="11,3,0,0" Background="White" Grid.RowSpan="2"/>
-                    <Label  Grid.Row="2" Content="+994702045054" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="5,5,0,15" Padding="5,0,0,0" Background="White" Grid.RowSpan="2"/>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="A4, A5 akrill toplu sifaris " Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"   Background="White" Grid.ColumnSpan="2" Margin="5,0,0,-10"/>
-                        <Button Content="more" Margin="451,-13,10,1" Grid.ColumnSpan="2"/>
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="4" Margin="18">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="6*"/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0" Background="White">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="Nihad Eminov" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold" Margin="10,0,0,0" Padding="1"/>
-
-                    </Grid>
-                    <Label  Grid.Row="1" Content="Indigo" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="0,0,0,15" Padding="11,3,0,0" Background="White" Grid.RowSpan="2"/>
-                    <Label  Grid.Row="2" Content="+994702045054" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="5,5,0,15" Padding="5,0,0,0" Background="White" Grid.RowSpan="2"/>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="A4, A5 akrill toplu sifaris " Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"   Background="White" Grid.ColumnSpan="2" Margin="5,0,0,-10"/>
-                        <Button Content="more" Margin="451,-13,10,1" Grid.ColumnSpan="2"/>
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="4" Margin="18">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="6*"/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0" Background="White">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="Nihad Eminov" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold" Margin="10,0,0,0" Padding="1"/>
-
-                    </Grid>
-                    <Label  Grid.Row="1" Content="Indigo" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="0,0,0,15" Padding="11,3,0,0" Background="White" Grid.RowSpan="2"/>
-                    <Label  Grid.Row="2" Content="+994702045054" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="5,5,0,15" Padding="5,0,0,0" Background="White" Grid.RowSpan="2"/>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="A4, A5 akrill toplu sifaris " Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"   Background="White" Grid.ColumnSpan="2" Margin="5,0,0,-10"/>
-                        <Button Content="more" Margin="451,-13,10,1" Grid.ColumnSpan="2"/>
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="5" Margin="18">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="6*"/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0" Background="White">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="Nihad Eminov" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point" FontWeight="Bold" Margin="10,0,0,0" Padding="1"/>
-
-                    </Grid>
-                    <Label  Grid.Row="1" Content="Indigo" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="0,0,0,15" Padding="11,3,0,0" Background="White" Grid.RowSpan="2"/>
-                    <Label  Grid.Row="2" Content="+994702045054" Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"  Margin="5,5,0,15" Padding="5,0,0,0" Background="White" Grid.RowSpan="2"/>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="A4, A5 akrill toplu sifaris " Foreground="#01133D" FontSize="15"  FontFamily="Sulphur Point"   Background="White" Grid.ColumnSpan="2" Margin="5,0,0,-10"/>
-                        <Button Content="more" Margin="451,-13,10,1" Grid.ColumnSpan="2"/>
-                    </Grid>
-                </Grid>
+        <!--<Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,0,200,0" Padding="10" Width="100">
+            <Image  Source="/StaticFiles/client.png"/>
+        </Label>
+        <Button  Width="80" HorizontalAlignment="Right" Margin="0,10,20,0" Content="home" FontSize="17" Foreground="#FFFFFF" Command="{Binding HomeBtnCommand}" Height="40" VerticalAlignment="Top" />-->
 
 
 
-            </Grid>
-        </ScrollViewer>
-
-        <Button Margin="417,532,33,56"  FontSize="18">
+        <Button Grid.Row="2" Margin="0,0,10,0"  FontSize="18" HorizontalAlignment="Right" Width="80" Height="80" VerticalAlignment="Bottom" Command="{Binding NewBtnCommand}">
             <StackPanel>
                 <TextBlock HorizontalAlignment="Center">+</TextBlock>
                 <TextBlock HorizontalAlignment="Center">new</TextBlock>
             </StackPanel>
         </Button>
 
-        <Label Grid.Row="6" Content="Proudly created by Tunar Abuzar in 2021." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+
+        <Label Grid.Row="3" Content="Proudly created by Nihad Eminov in 2023." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
 
 
     </Grid>

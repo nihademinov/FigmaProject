@@ -20,7 +20,7 @@ namespace FigmaProject.Commands
         public Predicate<object?>? _canExcecute;
         public Action<object?>? _execute;
 
-        public RealCommand(Action<object?>? execute,Predicate<object?>? canExcecute)
+        public RealCommand(Action<object?>? execute,Predicate<object?>? canExcecute = null)
         {
             _canExcecute = canExcecute;
             _execute = execute;
@@ -28,7 +28,7 @@ namespace FigmaProject.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if(_canExcecute == null) return false;
+            if(_canExcecute == null) return true;
             return _canExcecute(parameter);
         }
 

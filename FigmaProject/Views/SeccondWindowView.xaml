@@ -15,14 +15,30 @@
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Height="151" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Margin="10" Source="/StaticFiles/client.png"/>
-        </Label>
-        <Label Grid.Row="1" Content="Welcome Nihad!" HorizontalContentAlignment="Center" FontSize="17" Foreground="#3476E4"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Height="151" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Image Margin="10" Source="/StaticFiles/client.png"/>
+            </Label>
+            <Button Grid.Row="0" Grid.Column="1" Width="70" Height="40"  Content="log out" FontSize="15" Command="{Binding LogOutButtonCommand}" HorizontalAlignment="Right" Margin="20" VerticalAlignment="Top"/>
+        </Grid>
 
-        <Button Grid.Row="2" Content="create new client" Margin="10" FontSize="40"/>
-        <Button Grid.Row="3" Content="all clients" Margin="10" FontSize="40"/>
-        <Label Grid.Row="4" Content="Proudly created by Tunar Abuzar in 2021." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1" Grid.Column="0" Content="Welcome " HorizontalContentAlignment="Center" FontSize="17" Foreground="#3476E4" Margin="210,0,0,0"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding username}"  HorizontalContentAlignment="Left" FontSize="17" Foreground="#3476E4" />
+            
+        </Grid>
+
+        <Button Grid.Row="2" Content="create new client" Margin="10" FontSize="40" Command="{Binding NewClientButtonCommand}"/>
+        <Button Grid.Row="3" Content="all clients" Margin="10" FontSize="40" Command="{Binding SeeAllClientButtonCommand}"/>
+        <Label Grid.Row="4" Content="Proudly created by Nihad Eminov in 2023." HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
 
     </Grid>
 </Window>

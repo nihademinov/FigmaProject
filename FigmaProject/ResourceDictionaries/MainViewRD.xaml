@@ -32,6 +32,12 @@
             </Setter>
     </Style>
 
+    <ControlTemplate x:Key="customComboBox" TargetType="{x:Type ComboBox}">
+        <Border x:Name="Border" BorderThickness="1" BorderBrush="#01133D" Background="White" CornerRadius="10">
+            <ScrollViewer x:Name="PART_ContentHost" />
+        </Border>
+    </ControlTemplate>
+
    
 
 
